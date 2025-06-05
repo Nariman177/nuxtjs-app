@@ -4,18 +4,11 @@
       <div class="flex basis-1/4 items-center justify-start px-8 min-w-40 max-sm:basis-auto max-sm:px-0 max-sm:w-full max-sm:justify-between">
         <img src="/assets/img/loogo_comand.png" alt="Logo" class="w-16 h-16" />
         <div class="sm:hidden cursor-pointer" @click="switchBurger">
-          <div v-if="!burger">
-            <span class="block w-6 h-0.5 bg-black mb-1"></span>
-            <span class="block w-6 h-0.5 bg-black mb-1"></span>
-            <span class="block w-6 h-0.5 bg-black"></span>
-          </div>
-          <div v-else>
-            <span class="block w-6 h-0.5 bg-black rotate-45 translate-y-1.5"></span>
-            <span class="block w-6 h-0.5 bg-black -rotate-45 -translate-y-1.5"></span>
-          </div>
+          <i v-if="!burger" class="fas fa-bars fa-lg"></i> 
+          <i v-else class="fas fa-times fa-lg"></i>        
         </div>
       </div>
-      
+
       <nav class="hidden sm:flex flex-row gap-4">
         <NuxtLink to="/" class="p-2 hover:bg-green-600 hover:text-white rounded">Home</NuxtLink>
         <div class="relative">
@@ -31,7 +24,7 @@
       </nav>
     </header>
 
-    <!-- Бургер-меню -->
+    <!-- Мобильное меню -->
     <nav v-show="burger" class="flex flex-col gap-0 bg-white border-b-2 sm:hidden">
       <NuxtLink to="/" class="p-4 hover:bg-green-400 hover:text-white border-t">Home</NuxtLink>
       <div class="border-t">
@@ -74,6 +67,11 @@ const switchBurger = () => {
 
 useHead({
   script: [
+    {
+      src: "https://kit.fontawesome.com/67d2ef7984.js",
+      crossorigin: "anonymous",
+      async: true
+    },
     {
       src: "https://www.googletagmanager.com/gtag/js?id=G-RES3C5BQ23",
       async: true

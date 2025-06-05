@@ -1,14 +1,18 @@
 <template>
-  <div>
-    <h1 class="text-2xl font-bold mb-4">Home Page</h1>
-    <p>Welcome to the homepage!</p>
-    <div>
-      <button @click="showImage = !showImage" class="p-2 bg-green-400 mt-4 hover:bg-green-600">
-        Toggle Image
-      </button>
-      <div v-if="showImage">
-        <img src="assets/img/dolina.jpg" alt="Home Image" class="w-64 h-64 mt-4" />
-      </div>
+  <div class="relative min-h-screen">
+    <!-- Фоновая картинка -->
+    <div 
+      class="absolute inset-0 bg-cover bg-center z-0"
+      :style="{ backgroundImage: 'url(assets/img/dolina.jpg)' }"
+    ></div>
+    
+    <!-- Затемнение фона для лучшей читаемости текста -->
+    <div class="absolute inset-0 bg-black bg-opacity-40 z-0"></div>
+    
+    <!-- Контент -->
+    <div class="relative z-10 p-8 text-white">
+      <h1 class="text-4xl font-bold mb-6">Home Page</h1>
+      <p class="text-xl max-w-lg">Welcome to the home page!</p>
     </div>
   </div>
 </template>
